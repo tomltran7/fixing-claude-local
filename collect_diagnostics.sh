@@ -220,24 +220,59 @@ echo -e "${YELLOW}[6/8] Checking LiteLLM Status...${NC}"
     fi
     echo ""
     
-    echo "=== LiteLLM Port 8131 Test ==="
-    if curl -s --max-time 5 http://127.0.0.1:8131/health > /dev/null 2>&1; then
-        echo "✅ LiteLLM responding on port 8131"
+    # Detect LiteLLM port from Claude settings
+    LITELLM_PORT=""
+    if [[ -f "$HOME/.claude/settings.json" ]]; then
+        ANTHROPIC_BASE_URL=$(grep -o '"ANTHROPIC_BASE_URL"[[:space:]]*:[[:space:]]*"[^"]*"' "$HOME/.claude/settings.json" | sed 's/.*"\([^"]*\)"$/\1/')
+        if [[ -n "$ANTHROPIC_BASE_URL" ]]; then
+            LITELLM_PORT=$(echo "$ANTHROPIC_BASE_URL" | grep -o ':[0-9]\+' | tr -d ':')
+            echo "Detected LiteLLM port from Claude settings: $LITELLM_PORT"
+            echo ""
+        fi
+    fi
+    
+    # Fallback to default ports if not detected
+    if [[ -z "$LITELLM_PORT" ]]; then
+        LITELLM_PORT="8131"
+        echo "Using default LiteLLM port: $LITELLM_PORT"
+        echo ""
+    fi
+    
+    echo "=== LiteLLM Port $LITELLM_PORT Test ==="
+    if curl -s --max-time 5 "http://127.0.0.1:${LITELLM_PORT}/health" > /dev/null 2>&1; then
+        echo "✅ LiteLLM responding on port $LITELLM_PORT"
         echo ""
         echo "--- Health Check ---"
-        curl -s http://127.0.0.1:8131/health
+        curl -s "http://127.0.0.1:${LITELLM_PORT}/health"
         echo ""
     else
-        echo "❌ LiteLLM not responding on port 8131"
+        echo "❌ LiteLLM not responding on port $LITELLM_PORT"
     fi
     echo ""
     
     echo "=== LiteLLM Models Endpoint ==="
-    if curl -s --max-time 5 http://127.0.0.1:8131/v1/models > /dev/null 2>&1; then
-        curl -s http://127.0.0.1:8131/v1/models | python3 -m json.tool 2>&1
+    if curl -s --max-time 5 "http://127.0.0.1:${LITELLM_PORT}/v1/models" > /dev/null 2>&1; then
+        curl -s "http://127.0.0.1:${LITELLM_PORT}/v1/models" | python3 -m json.tool 2>&1
     else
-        echo "Models endpoint not available"
+        echo "Models endpoint not available on port $LITELLM_PORT"
     fi
+    echo ""
+    
+    # Also test common ports if the detected one doesn't work
+    echo "=== Testing Common Ports ==="
+    for TEST_PORT in 4000 8000 8080 8131; do
+        if [[ "$TEST_PORT" == "$LITELLM_PORT" ]]; then
+            continue  # Already tested above
+        fi
+        echo -n "Port $TEST_PORT: "
+        if curl -s --max-time 2 "http://localhost:${TEST_PORT}/health" > /dev/null 2>&1; then
+            echo "✅ Responding"
+        elif curl -s --max-time 2 "http://localhost:${TEST_PORT}/v1/models" > /dev/null 2>&1; then
+            echo "✅ Responding (models endpoint)"
+        else
+            echo "❌ Not responding"
+        fi
+    done
 } > "${RUN_DIR}/06_litellm_status.txt" 2>&1
 
 ################################################################################
@@ -245,6 +280,20 @@ echo -e "${YELLOW}[6/8] Checking LiteLLM Status...${NC}"
 ################################################################################
 echo -e "${YELLOW}[7/8] Testing API Endpoints...${NC}"
 {
+    # Detect LiteLLM port from Claude settings (reuse same logic)
+    LITELLM_PORT=""
+    if [[ -f "$HOME/.claude/settings.json" ]]; then
+        ANTHROPIC_BASE_URL=$(grep -o '"ANTHROPIC_BASE_URL"[[:space:]]*:[[:space:]]*"[^"]*"' "$HOME/.claude/settings.json" | sed 's/.*"\([^"]*\)"$/\1/')
+        if [[ -n "$ANTHROPIC_BASE_URL" ]]; then
+            LITELLM_PORT=$(echo "$ANTHROPIC_BASE_URL" | grep -o ':[0-9]\+' | tr -d ':')
+        fi
+    fi
+    
+    # Fallback to default
+    if [[ -z "$LITELLM_PORT" ]]; then
+        LITELLM_PORT="8131"
+    fi
+    
     echo "=== Direct Ollama Test (qwen2.5-coder:14b) ==="
     curl -s --max-time 10 http://localhost:11434/api/chat -d '{
       "model": "qwen2.5-coder:14b",
@@ -263,12 +312,26 @@ echo -e "${YELLOW}[7/8] Testing API Endpoints...${NC}"
     echo ""
     echo ""
     
-    echo "=== LiteLLM OpenAI Format Test ==="
-    curl -s --max-time 10 -X POST http://127.0.0.1:8131/v1/chat/completions \
+    echo "=== LiteLLM OpenAI Format Test (Port: $LITELLM_PORT) ==="
+    echo "Testing with Ollama model name: qwen2.5-coder:14b"
+    curl -s --max-time 10 -X POST "http://127.0.0.1:${LITELLM_PORT}/v1/chat/completions" \
       -H "Content-Type: application/json" \
-      -H "Authorization: Bearer sk-local-key" \
+      -H "Authorization: Bearer local" \
       -d '{
         "model": "qwen2.5-coder:14b",
+        "messages": [{"role": "user", "content": "Say hi in one word"}],
+        "max_tokens": 10
+      }' 2>&1
+    echo ""
+    echo ""
+    
+    echo "=== LiteLLM with Claude Model Name Test ==="
+    echo "Testing with Claude model name: claude-opus-4"
+    curl -s --max-time 10 -X POST "http://127.0.0.1:${LITELLM_PORT}/v1/chat/completions" \
+      -H "Content-Type: application/json" \
+      -H "Authorization: Bearer local" \
+      -d '{
+        "model": "claude-opus-4",
         "messages": [{"role": "user", "content": "Say hi in one word"}],
         "max_tokens": 10
       }' 2>&1
