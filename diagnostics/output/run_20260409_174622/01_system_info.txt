@@ -1,0 +1,44 @@
+=== System Information ===
+Timestamp: Thu Apr  9 17:46:22 CDT 2026
+Hostname: mac.lan
+OS: Darwin mac.lan 25.3.0 Darwin Kernel Version 25.3.0: Wed Jan 28 20:49:24 PST 2026; root:xnu-12377.81.4~5/RELEASE_ARM64_T8132 arm64
+Shell: /bin/bash
+User: alice
+
+=== Memory ===
+Mach Virtual Memory Statistics: (page size of 16384 bytes)
+Pages free:                                3672.
+Pages active:                             96670.
+Pages inactive:                          492963.
+Pages speculative:                        29155.
+Pages throttled:                              0.
+Pages wired down:                        145740.
+Pages purgeable:                           1716.
+"Translation faults":                2550064530.
+Pages copy-on-write:                   49756635.
+Pages zero filled:                   1482381878.
+Pages reactivated:                    353304621.
+Pages purged:                         111452477.
+File-backed pages:                       553790.
+Anonymous pages:                          64998.
+Pages stored in compressor:             1143492.
+Pages occupied by compressor:            240705.
+Decompressions:                       354187653.
+Compressions:                         422322726.
+Pageins:                              133320620.
+Pageouts:                               2751437.
+Swapins:                               32281162.
+Swapouts:                              35194275.
+
+=== Disk Space ===
+Filesystem        Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s1s1   460Gi    11Gi   137Gi     8%    453k  1.4G    0%   /
+devfs            203Ki   203Ki     0Bi   100%     702     0  100%   /dev
+/dev/disk3s6     460Gi   6.0Gi   137Gi     5%       6  1.4G    0%   /System/Volumes/VM
+/dev/disk3s2     460Gi   9.3Gi   137Gi     7%    1.9k  1.4G    0%   /System/Volumes/Preboot
+/dev/disk3s4     460Gi   5.0Mi   137Gi     1%      67  1.4G    0%   /System/Volumes/Update
+/dev/disk1s2     500Mi   6.0Mi   482Mi     2%       1  4.9M    0%   /System/Volumes/xarts
+/dev/disk1s1     500Mi   6.0Mi   482Mi     2%      36  4.9M    0%   /System/Volumes/iSCPreboot
+/dev/disk1s3     500Mi   908Ki   482Mi     1%      93  4.9M    0%   /System/Volumes/Hardware
+/dev/disk3s5     460Gi   294Gi   137Gi    69%    1.6M  1.4G    0%   /System/Volumes/Data
+

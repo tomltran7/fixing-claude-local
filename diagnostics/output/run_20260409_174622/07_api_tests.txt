@@ -1,0 +1,7 @@
+=== Direct Ollama Test (qwen2.5-coder:14b) ===
+{"model":"qwen2.5-coder:14b","created_at":"2026-04-09T22:46:33.57531Z","message":{"role":"assistant","content":"Hello!"},"done":true,"done_reason":"stop","total_duration":6979109750,"load_duration":6137976792,"prompt_eval_count":34,"prompt_eval_duration":641384208,"eval_count":3,"eval_duration":186585084}
+
+=== Direct Ollama Test (gemma4:e4b) ===
+{"model":"gemma4:e4b","created_at":"2026-04-09T22:46:39.849045Z","message":{"role":"assistant","content":"Hello"},"done":true,"done_reason":"stop","total_duration":6212288750,"load_duration":5872438084,"prompt_eval_count":20,"prompt_eval_duration":134474833,"eval_count":2,"eval_duration":37027709}
+
+=== LiteLLM OpenAI Format Test ===

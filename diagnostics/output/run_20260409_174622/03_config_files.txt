@@ -1,0 +1,173 @@
+=== Claude Settings Files ===
+✅ Found: /Users/alice/.claude/settings.json
+Size:     1707 bytes
+Permissions: -rw-r--r--
+
+--- Content ---
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "env": {
+    "ANTHROPIC_BASE_URL": "http://localhost:4000",
+    "ANTHROPIC_AUTH_TOKEN": "local",
+    "ANTHROPIC_MODEL": "qwen2.5-coder:14b",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "gemma4:26b",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "gemma4:e4b",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "qwen2.5-coder:14b",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "qwen2.5-coder:14b",
+    "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "8192",
+    "DISABLE_PROMPT_CACHING": "1",
+    "DISABLE_AUTOUPDATER": "1",
+    "DISABLE_TELEMETRY": "1",
+    "DISABLE_ERROR_REPORTING": "1",
+    "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(npm *)",
+      "Bash(npx *)",
+      "Bash(node *)",
+      "Bash(python *)",
+      "Bash(python3 *)",
+      "Bash(pip *)",
+      "Bash(pip3 *)",
+      "Bash(brew *)",
+      "Bash(ls *)",
+      "Bash(cat *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(find *)",
+      "Bash(grep *)",
+      "Bash(rg *)",
+      "Bash(mkdir *)",
+      "Bash(cp *)",
+      "Bash(mv *)",
+      "Bash(rm *)",
+      "Bash(echo *)",
+      "Bash(curl *)",
+      "Bash(which *)",
+      "Bash(env *)",
+      "Bash(cd *)",
+      "Bash(pwd)",
+      "Bash(wc *)",
+      "Bash(sort *)",
+      "Bash(uniq *)",
+      "Bash(diff *)",
+      "Bash(chmod *)",
+      "Bash(touch *)",
+      "Bash(sed *)",
+      "Bash(awk *)",
+      "Bash(xargs *)",
+      "Bash(tee *)",
+      "Read",
+      "Edit",
+      "Write",
+      "Glob",
+      "Grep",
+      "WebFetch",
+      "WebSearch"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)"
+    ]
+  },
+  "model": "gemma4:26b"
+}
+
+--- JSON Validation ---
+Valid JSON ✅
+
+---
+❌ Not found: /Users/alice/.config/claude/settings.json
+---
+✅ Found: /Users/alice/.claude/config.json
+Size:     1707 bytes
+Permissions: -rw-r--r--
+
+--- Content ---
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "env": {
+    "ANTHROPIC_BASE_URL": "http://localhost:4000",
+    "ANTHROPIC_AUTH_TOKEN": "local",
+    "ANTHROPIC_MODEL": "qwen2.5-coder:14b",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "gemma4:26b",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "gemma4:e4b",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "qwen2.5-coder:14b",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "qwen2.5-coder:14b",
+    "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "8192",
+    "DISABLE_PROMPT_CACHING": "1",
+    "DISABLE_AUTOUPDATER": "1",
+    "DISABLE_TELEMETRY": "1",
+    "DISABLE_ERROR_REPORTING": "1",
+    "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(npm *)",
+      "Bash(npx *)",
+      "Bash(node *)",
+      "Bash(python *)",
+      "Bash(python3 *)",
+      "Bash(pip *)",
+      "Bash(pip3 *)",
+      "Bash(brew *)",
+      "Bash(ls *)",
+      "Bash(cat *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(find *)",
+      "Bash(grep *)",
+      "Bash(rg *)",
+      "Bash(mkdir *)",
+      "Bash(cp *)",
+      "Bash(mv *)",
+      "Bash(rm *)",
+      "Bash(echo *)",
+      "Bash(curl *)",
+      "Bash(which *)",
+      "Bash(env *)",
+      "Bash(cd *)",
+      "Bash(pwd)",
+      "Bash(wc *)",
+      "Bash(sort *)",
+      "Bash(uniq *)",
+      "Bash(diff *)",
+      "Bash(chmod *)",
+      "Bash(touch *)",
+      "Bash(sed *)",
+      "Bash(awk *)",
+      "Bash(xargs *)",
+      "Bash(tee *)",
+      "Read",
+      "Edit",
+      "Write",
+      "Glob",
+      "Grep",
+      "WebFetch",
+      "WebSearch"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)"
+    ]
+  },
+  "model": "gemma4:26b"
+}
+
+--- JSON Validation ---
+Valid JSON ✅
+
+---
+
+=== LiteLLM Config Files ===
+❌ Not found: ./litellm_config.yaml
+---
+❌ Not found: ./config.yaml
+---
+❌ Not found: /Users/alice/litellm_config.yaml
+---
