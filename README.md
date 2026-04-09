@@ -20,26 +20,40 @@ This toolkit helps diagnose "JSON spill" errors and configuration issues when ru
 ```bash
 git clone git@github.com:tomltran7/fixing-claude-local.git
 cd fixing-claude-local
-chmod +x collect_diagnostics.sh
+chmod +x *.sh
 ```
 
-### Step 2: Run Diagnostics
+### Step 2: Run Full Workflow (Recommended)
 
+**Option A: One Command (Easiest)**
+```bash
+./run_and_push.sh
+```
+This does everything: diagnostics → commit → push to GitHub
+
+**Option B: Separate Steps (More Control)**
+```bash
+# 2a. Run diagnostics
+./quick_start.sh
+
+# 2b. Review results
+cd diagnostics/output/latest && ls -la
+
+# 2c. Push to GitHub (with confirmation)
+./auto_push.sh
+```
+
+**Option C: Manual**
 ```bash
 ./collect_diagnostics.sh
+git add -f diagnostics/output/run_*/
+git commit -m "Diagnostics run $(date +%Y%m%d_%H%M%S)"
+git push origin main
 ```
 
-This will create a timestamped directory under `diagnostics/output/` with all diagnostic information.
+> 💡 **See [PUSH_SCRIPTS_GUIDE.md](PUSH_SCRIPTS_GUIDE.md) for detailed comparison of all push scripts**
 
-### Step 3: Push Results to GitHub
-
-```bash
-git add diagnostics/output/
-git commit -m "Add diagnostics run $(date +%Y%m%d_%H%M%S)"
-git push
-```
-
-### Step 4: Share with Devin
+### Step 3: Share with Devin
 
 Inform Devin that diagnostics are available. Devin will:
 1. Read the diagnostic files
@@ -47,12 +61,12 @@ Inform Devin that diagnostics are available. Devin will:
 3. Create new scripts with fixes
 4. Commit them back to the repository
 
-### Step 5: Pull Updates & Run Fixes
+### Step 4: Pull Updates & Run Fixes
 
 ```bash
 git pull
 # Run any new scripts Devin provides
-./fix_[issue_name].sh  # Scripts will be created based on findings
+./fixes/fix_[issue_name].sh  # Scripts will be created based on findings
 ```
 
 ## 📁 Directory Structure
@@ -60,24 +74,35 @@ git pull
 ```
 fixing-claude-local/
 ├── README.md                          # This file
-├── collect_diagnostics.sh             # Main diagnostic script
+├── PUSH_SCRIPTS_GUIDE.md              # Guide for push scripts
+│
+├── Scripts (Workflow Automation)
+├── collect_diagnostics.sh             # Core diagnostic collection
+├── analyze_json_spill.sh              # JSON spill detection tests
+├── quick_start.sh                     # Run both diagnostics + analysis
+├── run_and_push.sh                    # Full workflow: diagnose → push (one command)
+├── auto_push.sh                       # Push to GitHub with confirmation
+└── quick_push.sh                      # Instant push (no prompts)
+│
 ├── diagnostics/
 │   ├── output/                        # Diagnostic outputs (gitignored except .gitkeep)
 │   │   ├── latest -> run_YYYYMMDD_HHMMSS/  # Symlink to latest run
-│   │   └── run_YYYYMMDD_HHMMSS/       # Timestamped diagnostic runs
-│   │       ├── 00_summary.txt
-│   │       ├── 01_system_info.txt
-│   │       ├── 02_installed_tools.txt
-│   │       ├── 03_config_files.txt
-│   │       ├── 04_environment_vars.txt
-│   │       ├── 05_ollama_status.txt
-│   │       ├── 06_litellm_status.txt
-│   │       ├── 07_api_tests.txt
-│   │       └── 08_claude_tests.txt
+│   │   ├── run_YYYYMMDD_HHMMSS/       # Timestamped diagnostic runs
+│   │   │   ├── 01_system_info.txt
+│   │   │   ├── 02_installed_tools.txt
+│   │   │   ├── 03_config_files.txt
+│   │   │   ├── 04_environment_vars.txt
+│   │   │   ├── 05_ollama_status.txt
+│   │   │   ├── 06_litellm_status.txt
+│   │   │   ├── 07_api_tests.txt
+│   │   │   └── 08_claude_tests.txt
+│   │   └── json_spill_analysis_YYYYMMDD_HHMMSS.txt
 │   └── analysis/                      # Devin's analysis (committed)
 │       └── findings_YYYYMMDD.md
+│
 ├── fixes/                             # Fix scripts created by Devin
 │   └── [auto-generated scripts]
+│
 └── configs/                           # Sample/corrected configs
     └── [auto-generated configs]
 ```
