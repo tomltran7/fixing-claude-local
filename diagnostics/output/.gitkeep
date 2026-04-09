@@ -1,0 +1,2 @@
+# This file ensures the diagnostics/output directory is tracked by git
+# Actual diagnostic outputs are gitignored for security

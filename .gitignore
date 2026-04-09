@@ -1,0 +1,30 @@
+# Diagnostic outputs (contain potentially sensitive information)
+# Only commit specific runs manually when needed
+diagnostics/output/*
+!diagnostics/output/.gitkeep
+
+# But keep analysis and findings
+!diagnostics/analysis/
+
+# Environment files
+.env
+.env.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Temporary files
+tmp/
+temp/
+*.tmp
