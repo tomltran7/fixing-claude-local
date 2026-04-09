@@ -8,7 +8,8 @@ This toolkit helps diagnose "JSON spill" errors and configuration issues when ru
 
 ## 📋 Prerequisites
 
-- Git configured with SSH access to this repository
+- Git installed
+- GitHub access (SSH key or Personal Access Token)
 - Claude CLI installed
 - Ollama installed
 - LiteLLM installed (optional, for testing)
@@ -17,11 +18,23 @@ This toolkit helps diagnose "JSON spill" errors and configuration issues when ru
 
 ### Step 1: Clone Repository (on your personal machine)
 
+**Option A: SSH (if you have SSH key configured)**
 ```bash
 git clone git@github.com:tomltran7/fixing-claude-local.git
 cd fixing-claude-local
 chmod +x *.sh
 ```
+
+**Option B: HTTPS (if using Personal Access Token)**
+```bash
+git clone https://github.com/tomltran7/fixing-claude-local.git
+cd fixing-claude-local
+chmod +x *.sh
+# Configure your GitHub token securely:
+./configure_github_token.sh
+```
+
+> 🔒 **Security Note:** Never hardcode tokens! Use `./configure_github_token.sh` to store tokens securely.
 
 ### Step 2: Run Full Workflow (Recommended)
 
