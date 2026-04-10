@@ -17,9 +17,12 @@ NC='\033[0m'
 
 echo -e "${BLUE}Quick Push to GitHub...${NC}"
 
-# Add diagnostics
+# Add diagnostics (force add to override .gitignore)
 git add -f diagnostics/output/run_*/ 2>/dev/null || true
 git add -f diagnostics/output/json_spill_analysis_*.txt 2>/dev/null || true
+git add -f diagnostics/output/empty_response_diagnostic_*.txt 2>/dev/null || true
+git add -f diagnostics/output/git_pull_issue_*.txt 2>/dev/null || true
+git add -f diagnostics/output/tool_calling_diagnostic_*.txt 2>/dev/null || true
 git add diagnostics/analysis/*.md 2>/dev/null || true
 
 # Check if anything to commit

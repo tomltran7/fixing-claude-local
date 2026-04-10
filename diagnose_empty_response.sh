@@ -215,7 +215,8 @@ echo ""
 echo -e "${YELLOW}Auto-pushing to GitHub...${NC}"
 echo ""
 
-git add "$OUTPUT_FILE"
+# Force add (override .gitignore)
+git add -f "$OUTPUT_FILE"
 
 if git diff --cached --quiet; then
     echo -e "${RED}No changes to commit${NC}"
@@ -226,6 +227,8 @@ else
         echo -e "${GREEN}✓ Successfully pushed to GitHub!${NC}"
     else
         echo -e "${RED}✗ Push failed - you may need to run manually:${NC}"
+        echo "  git add -f diagnostics/output/empty_response_diagnostic_*.txt"
+        echo "  git commit -m 'Empty response diagnostic'"
         echo "  git push origin main"
     fi
 fi
