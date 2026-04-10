@@ -1,0 +1,123 @@
+=== Ollama Service Status ===
+✅ Ollama process is running
+PIDs: 55985 56072 
+
+=== Ollama API Test ===
+✅ Ollama API responding on port 11434
+
+--- Available Models ---
+{
+    "models": [
+        {
+            "name": "llama3.2:latest",
+            "model": "llama3.2:latest",
+            "modified_at": "2026-04-09T01:37:38.500450898-05:00",
+            "size": 2019393189,
+            "digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+            "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                    "llama"
+                ],
+                "parameter_size": "3.2B",
+                "quantization_level": "Q4_K_M"
+            }
+        },
+        {
+            "name": "llama3-groq-tool-use:8b",
+            "model": "llama3-groq-tool-use:8b",
+            "modified_at": "2026-04-09T00:48:42.860039317-05:00",
+            "size": 4661257688,
+            "digest": "36211dad2b153f09fe2b0c5f3e4e82ee83d27db68e3a00006cd934dfdc5057a4",
+            "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                    "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_0"
+            }
+        },
+        {
+            "name": "gemma4:e4b",
+            "model": "gemma4:e4b",
+            "modified_at": "2026-04-08T22:32:15.171733182-05:00",
+            "size": 9608350718,
+            "digest": "c6eb396dbd5992bbe3f5cdb947e8bbc0ee413d7c17e2beaae69f5d569cf982eb",
+            "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "gemma4",
+                "families": [
+                    "gemma4"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+            }
+        },
+        {
+            "name": "gemma4:26b",
+            "model": "gemma4:26b",
+            "modified_at": "2026-04-08T22:10:28.085450877-05:00",
+            "size": 17987581215,
+            "digest": "5571076f3d70050487b26b341705799e0ab29b808164f90d20d4cf84f699d251",
+            "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "gemma4",
+                "families": [
+                    "gemma4"
+                ],
+                "parameter_size": "25.8B",
+                "quantization_level": "Q4_K_M"
+            }
+        },
+        {
+            "name": "qwen2.5-coder:14b",
+            "model": "qwen2.5-coder:14b",
+            "modified_at": "2026-04-08T22:07:01.576314675-05:00",
+            "size": 8988124298,
+            "digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+            "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen2",
+                "families": [
+                    "qwen2"
+                ],
+                "parameter_size": "14.8B",
+                "quantization_level": "Q4_K_M"
+            }
+        },
+        {
+            "name": "gemma4:31b",
+            "model": "gemma4:31b",
+            "modified_at": "2026-04-08T21:33:11.365001855-05:00",
+            "size": 19868981791,
+            "digest": "6316f0629137b426c9d9b853ffc4c8209589f30ee39aebede6285096c0ff47e7",
+            "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "gemma4",
+                "families": [
+                    "gemma4"
+                ],
+                "parameter_size": "31.3B",
+                "quantization_level": "Q4_K_M"
+            }
+        }
+    ]
+}
+
+=== Ollama Model List ===
+NAME                       ID              SIZE      MODIFIED     
+llama3.2:latest            a80c4f17acd5    2.0 GB    18 hours ago    
+llama3-groq-tool-use:8b    36211dad2b15    4.7 GB    18 hours ago    
+gemma4:e4b                 c6eb396dbd59    9.6 GB    21 hours ago    
+gemma4:26b                 5571076f3d70    17 GB     21 hours ago    
+qwen2.5-coder:14b          9ec8897f747e    9.0 GB    21 hours ago    
+gemma4:31b                 6316f0629137    19 GB     22 hours ago    

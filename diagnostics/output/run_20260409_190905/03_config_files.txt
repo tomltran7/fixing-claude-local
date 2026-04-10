@@ -1,0 +1,242 @@
+=== Claude Settings Files ===
+✅ Found: /Users/alice/.claude/settings.json
+Size:     1744 bytes
+Permissions: -rw-r--r--
+
+--- Content ---
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "env": {
+    "ANTHROPIC_BASE_URL": "http://localhost:4000",
+    "ANTHROPIC_AUTH_TOKEN": "local",
+    "ANTHROPIC_MODEL": "qwen2.5-coder:14b",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "gemma4:26b",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "gemma4:e4b",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "qwen2.5-coder:14b",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "qwen2.5-coder:14b",
+    "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "8192",
+    "DISABLE_PROMPT_CACHING": "1",
+    "DISABLE_AUTOUPDATER": "1",
+    "DISABLE_TELEMETRY": "1",
+    "DISABLE_ERROR_REPORTING": "1",
+    "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1",
+    "ANTHROPIC_API_KEY": "local"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(npm *)",
+      "Bash(npx *)",
+      "Bash(node *)",
+      "Bash(python *)",
+      "Bash(python3 *)",
+      "Bash(pip *)",
+      "Bash(pip3 *)",
+      "Bash(brew *)",
+      "Bash(ls *)",
+      "Bash(cat *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(find *)",
+      "Bash(grep *)",
+      "Bash(rg *)",
+      "Bash(mkdir *)",
+      "Bash(cp *)",
+      "Bash(mv *)",
+      "Bash(rm *)",
+      "Bash(echo *)",
+      "Bash(curl *)",
+      "Bash(which *)",
+      "Bash(env *)",
+      "Bash(cd *)",
+      "Bash(pwd)",
+      "Bash(wc *)",
+      "Bash(sort *)",
+      "Bash(uniq *)",
+      "Bash(diff *)",
+      "Bash(chmod *)",
+      "Bash(touch *)",
+      "Bash(sed *)",
+      "Bash(awk *)",
+      "Bash(xargs *)",
+      "Bash(tee *)",
+      "Read",
+      "Edit",
+      "Write",
+      "Glob",
+      "Grep",
+      "WebFetch",
+      "WebSearch"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)"
+    ]
+  },
+  "model": "claude-opus-4"
+}
+
+--- JSON Validation ---
+Valid JSON ✅
+
+---
+❌ Not found: /Users/alice/.config/claude/settings.json
+---
+✅ Found: /Users/alice/.claude/config.json
+Size:     1707 bytes
+Permissions: -rw-r--r--
+
+--- Content ---
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "env": {
+    "ANTHROPIC_BASE_URL": "http://localhost:4000",
+    "ANTHROPIC_AUTH_TOKEN": "local",
+    "ANTHROPIC_MODEL": "qwen2.5-coder:14b",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "gemma4:26b",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "gemma4:e4b",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "qwen2.5-coder:14b",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "qwen2.5-coder:14b",
+    "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "8192",
+    "DISABLE_PROMPT_CACHING": "1",
+    "DISABLE_AUTOUPDATER": "1",
+    "DISABLE_TELEMETRY": "1",
+    "DISABLE_ERROR_REPORTING": "1",
+    "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(npm *)",
+      "Bash(npx *)",
+      "Bash(node *)",
+      "Bash(python *)",
+      "Bash(python3 *)",
+      "Bash(pip *)",
+      "Bash(pip3 *)",
+      "Bash(brew *)",
+      "Bash(ls *)",
+      "Bash(cat *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(find *)",
+      "Bash(grep *)",
+      "Bash(rg *)",
+      "Bash(mkdir *)",
+      "Bash(cp *)",
+      "Bash(mv *)",
+      "Bash(rm *)",
+      "Bash(echo *)",
+      "Bash(curl *)",
+      "Bash(which *)",
+      "Bash(env *)",
+      "Bash(cd *)",
+      "Bash(pwd)",
+      "Bash(wc *)",
+      "Bash(sort *)",
+      "Bash(uniq *)",
+      "Bash(diff *)",
+      "Bash(chmod *)",
+      "Bash(touch *)",
+      "Bash(sed *)",
+      "Bash(awk *)",
+      "Bash(xargs *)",
+      "Bash(tee *)",
+      "Read",
+      "Edit",
+      "Write",
+      "Glob",
+      "Grep",
+      "WebFetch",
+      "WebSearch"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)"
+    ]
+  },
+  "model": "gemma4:26b"
+}
+
+--- JSON Validation ---
+Valid JSON ✅
+
+---
+
+=== LiteLLM Config Files ===
+❌ Not found: ./litellm_config.yaml
+---
+❌ Not found: ./config.yaml
+---
+✅ Found: /Users/alice/litellm_config.yaml
+--- Content ---
+# LiteLLM Configuration for Claude Code + Ollama Integration
+
+model_list:
+  # Claude Model Names → Ollama Models
+  - model_name: claude-opus-4
+    litellm_params:
+      model: ollama/gemma4:26b
+      api_base: http://localhost:11434
+      stream: true
+      
+  - model_name: claude-opus-4-20250514
+    litellm_params:
+      model: ollama/gemma4:26b
+      api_base: http://localhost:11434
+      stream: true
+      
+  - model_name: claude-sonnet-4
+    litellm_params:
+      model: ollama/gemma4:e4b
+      api_base: http://localhost:11434
+      stream: true
+      
+  - model_name: claude-sonnet-4-20250514
+    litellm_params:
+      model: ollama/gemma4:e4b
+      api_base: http://localhost:11434
+      stream: true
+      
+  - model_name: claude-haiku-4
+    litellm_params:
+      model: ollama/qwen2.5-coder:14b
+      api_base: http://localhost:11434
+      stream: true
+      
+  - model_name: claude-haiku-4-20250514
+    litellm_params:
+      model: ollama/qwen2.5-coder:14b
+      api_base: http://localhost:11434
+      stream: true
+
+  # Direct Ollama Model Names
+  - model_name: qwen2.5-coder:14b
+    litellm_params:
+      model: ollama/qwen2.5-coder:14b
+      api_base: http://localhost:11434
+      stream: true
+      
+  - model_name: gemma4:e4b
+    litellm_params:
+      model: ollama/gemma4:e4b
+      api_base: http://localhost:11434
+      stream: true
+      
+  - model_name: gemma4:26b
+    litellm_params:
+      model: ollama/gemma4:26b
+      api_base: http://localhost:11434
+      stream: true
+
+general_settings:
+  master_key: "local"
+  
+litellm_settings:
+  drop_params: true
+  num_retries: 3
+  request_timeout: 600
+
+---

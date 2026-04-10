@@ -1,0 +1,26 @@
+=== LiteLLM Process Status ===
+✅ LiteLLM process is running
+PIDs: 56093 56095 56096 
+
+Detected LiteLLM port from Claude settings: 4000
+
+=== LiteLLM Port 4000 Test ===
+✅ LiteLLM responding on port 4000
+
+--- Health Check ---
+{"error":{"message":"Authentication Error, No api key passed in.","type":"auth_error","param":"None","code":"401"}}
+
+=== LiteLLM Models Endpoint ===
+{
+    "error": {
+        "message": "Authentication Error, No api key passed in.",
+        "type": "auth_error",
+        "param": "None",
+        "code": "401"
+    }
+}
+
+=== Testing Common Ports ===
+Port 8000: ❌ Not responding
+Port 8080: ❌ Not responding
+Port 8131: ❌ Not responding

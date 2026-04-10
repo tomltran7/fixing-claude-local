@@ -1,0 +1,12 @@
+=== Direct Ollama Test (qwen2.5-coder:14b) ===
+{"model":"qwen2.5-coder:14b","created_at":"2026-04-10T00:09:10.637463Z","message":{"role":"assistant","content":"Hello! How can I assist you today?"},"done":true,"done_reason":"stop","total_duration":1189596125,"load_duration":72080834,"prompt_eval_count":34,"prompt_eval_duration":331521583,"eval_count":10,"eval_duration":780978708}
+
+=== Direct Ollama Test (gemma4:e4b) ===
+{"model":"gemma4:e4b","created_at":"2026-04-10T00:09:15.778579Z","message":{"role":"assistant","content":"Hello"},"done":true,"done_reason":"stop","total_duration":5119715875,"load_duration":4874319542,"prompt_eval_count":20,"prompt_eval_duration":133740000,"eval_count":2,"eval_duration":35374209}
+
+=== LiteLLM OpenAI Format Test (Port: 4000) ===
+Testing with Ollama model name: qwen2.5-coder:14b
+{"id":"chatcmpl-58766b01-e14f-4cee-b62c-b6f4ceac2e92","created":1775779762,"model":"qwen2.5-coder:14b","object":"chat.completion","choices":[{"finish_reason":"stop","index":0,"message":{"content":"Hello! How can I assist you today?","role":"assistant"}}],"usage":{"completion_tokens":10,"prompt_tokens":38,"total_tokens":48}}
+
+=== LiteLLM with Claude Model Name Test ===
+Testing with Claude model name: claude-opus-4
