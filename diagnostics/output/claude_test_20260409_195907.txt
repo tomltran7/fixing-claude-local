@@ -1,0 +1,33 @@
+=== TEST 1: Simple 'hi' with gemma4:e4b ===
+Command: claude -p 'hi' --model gemma4:e4b
+
+Response:
+{
+  "tool_calls": [
+    {
+      "function": "say_hello",
+      "args": {}
+    }
+  ]
+}
+
+---
+
+=== TEST 2: Directory review with gemma4:e4b ===
+Command: claude -p 'please review the current directory' --model gemma4:e4b
+
+Response:
+{
+  "thought": "The user has asked me to review the current working directory. I do not have a specific tool defined for listing files or inspecting the file system content. In a typical programming environment, this would require a `ls` or `read_dir` command, which is not provided in the available tool definitions. Therefore, I must inform the user about this limitation.\n\nHowever, based on the context of the interaction, the user might be implicitly expecting me to perform some kind of initial setup or context gathering. Since I cannot see the files, the most honest and helpful response is to state my limitation while inviting the user to provide the necessary context or the task they want me to perform with the files."
+}
+
+---
+
+=== TEST 3: With --debug flag ===
+Command: claude -p 'hi' --model gemma4:e4b --debug
+
+Response:
+{}
+
+---
+
